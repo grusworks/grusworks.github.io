@@ -11,9 +11,9 @@
 
 :root {
   --bg: #0a0a0a;
-  --bg2: #161616;
+  --bg2: rgba(255,255,255,0.04);
   --text: #f2f2f2;
-  --muted: #888;
+  --muted: #aaa;
   --border: rgba(255,255,255,0.08);
   --max: 960px;
   --font: 'Inter', -apple-system, sans-serif;
@@ -26,7 +26,22 @@ body {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  position: relative;
 }
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 600px 600px at 10% 20%, rgba(120,40,220,0.45) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 500px at 80% 10%, rgba(220,40,160,0.4) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 400px at 90% 80%, rgba(220,120,30,0.3) 0%, transparent 70%);
+}
+
+* { position: relative; z-index: 1; }
 
 a { color: inherit; text-decoration: none; }
 
@@ -38,12 +53,12 @@ nav {
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  background: rgba(10,10,10,0.92);
-  backdrop-filter: blur(16px);
+  background: rgba(10,10,10,0.75);
+  backdrop-filter: blur(20px);
   z-index: 100;
 }
 
-.logo { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; }
+.logo { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
 
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a { font-size: 14px; color: var(--muted); transition: color 0.15s; font-weight: 500; }
@@ -64,53 +79,20 @@ nav {
 .hero-banner {
   width: 100%;
   min-height: 540px;
-  background: #0a0a0a;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;
   padding: 5rem 2.5rem 4rem;
-  position: relative;
-  overflow: hidden;
   border-bottom: 1px solid var(--border);
 }
 
-.blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
-}
-
-.blob-purple {
-  width: 500px; height: 500px;
-  background: rgba(120, 40, 220, 0.55);
-  top: -100px; left: -80px;
-}
-
-.blob-pink {
-  width: 400px; height: 400px;
-  background: rgba(220, 40, 160, 0.45);
-  top: 50px; right: 100px;
-}
-
-.blob-orange {
-  width: 350px; height: 350px;
-  background: rgba(220, 120, 30, 0.35);
-  bottom: -80px; right: -50px;
-}
-
-.star { position: absolute; color: rgba(255,255,255,0.55); font-size: 26px; pointer-events: none; }
-.cross { position: absolute; color: rgba(255,255,255,0.4); font-size: 22px; font-weight: 300; pointer-events: none; }
-
 .hero-banner h1 {
   font-size: clamp(3.8rem, 8vw, 7rem);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1.0;
   color: #fff;
-  position: relative;
-  z-index: 1;
   margin-bottom: 1rem;
 }
 
@@ -119,8 +101,6 @@ nav {
   color: rgba(255,255,255,0.65);
   font-weight: 400;
   line-height: 1.5;
-  position: relative;
-  z-index: 1;
 }
 
 .section {
@@ -160,21 +140,11 @@ nav {
   gap: 2rem;
 }
 .platform-item:first-child { border-top: 1px solid var(--border); }
-.platform-item:hover .plat-name { opacity: 0.65; }
-.platform-item:hover .arrow { transform: translateX(5px); }
 
 .plat-name {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.02em;
-  transition: opacity 0.15s;
-}
-
-.arrow {
-  color: var(--muted);
-  font-size: 20px;
-  flex-shrink: 0;
-  transition: transform 0.2s;
 }
 
 .products-grid {
@@ -191,6 +161,7 @@ nav {
   background: var(--bg2);
   border: 1px solid var(--border);
   border-radius: 16px;
+  backdrop-filter: blur(10px);
   transition: border-color 0.2s;
 }
 .product-card:hover { border-color: rgba(255,255,255,0.16); }
@@ -198,7 +169,7 @@ nav {
 .app-icon {
   width: 60px; height: 60px;
   border-radius: 14px;
-  background: #222;
+  background: rgba(255,255,255,0.06);
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
@@ -288,7 +259,6 @@ footer p { font-size: 13px; color: var(--muted); }
 <nav>
   <span class="logo">Grus Works</span>
   <ul class="nav-links">
-    <li><a href="#platforms">Platforms</a></li>
     <li><a href="#products">Products</a></li>
     <li><a href="#socials">Socials</a></li>
   </ul>
@@ -296,32 +266,11 @@ footer p { font-size: 13px; color: var(--muted); }
 </nav>
 
 <div class="hero-banner">
-  <div class="blob blob-purple"></div>
-  <div class="blob blob-pink"></div>
-  <div class="blob blob-orange"></div>
-  <span class="star" style="top:9%;left:6%">✦</span>
-  <span class="star" style="top:48%;left:44%">✦</span>
-  <span class="star" style="top:78%;right:16%">✦</span>
-  <span class="cross" style="top:26%;right:22%">+</span>
-  <span class="cross" style="top:31%;right:27%">+</span>
-  <span class="cross" style="top:36%;right:22%">+</span>
-  <span class="cross" style="top:41%;right:27%">+</span>
-  <span class="cross" style="top:46%;right:22%">+</span>
-  <span class="cross" style="top:36%;right:17%">+</span>
-  <span class="cross" style="top:41%;right:17%">+</span>
-  <span class="cross" style="top:46%;right:17%">+</span>
   <h1>Grus Works</h1>
   <p>Thoughtful apps for everyday life.</p>
 </div>
 
-<div class="section" id="platforms">
-  <div class="section-label">Platforms</div>
-  <div class="platform-list">
-    <a class="platform-item" href="https://apps.apple.com" target="_blank">
-      <span class="plat-name">iOS App Store</span>
-      <span class="arrow">→</span>
-    </a>
-  </div>
+
 </div>
 
 <div class="section" id="products">
