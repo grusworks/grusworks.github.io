@@ -5,18 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grus Works</title>
 <meta name="description" content="Thoughtful apps for everyday life.">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #111111;
-  --bg2: #1a1a1a;
+  --bg: #0a0a0a;
+  --bg2: #161616;
   --text: #f2f2f2;
   --muted: #888;
   --border: rgba(255,255,255,0.08);
   --max: 960px;
-  --font: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font: 'Inter', -apple-system, sans-serif;
 }
 
 body {
@@ -38,12 +38,12 @@ nav {
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  background: rgba(17,17,17,0.96);
-  backdrop-filter: blur(12px);
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(16px);
   z-index: 100;
 }
 
-.logo { font-size: 15px; font-weight: 700; }
+.logo { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; }
 
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a { font-size: 14px; color: var(--muted); transition: color 0.15s; font-weight: 500; }
@@ -52,56 +52,75 @@ nav {
 .nav-cta {
   font-size: 14px;
   font-weight: 600;
-  padding: 0.45rem 1.1rem;
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 8px;
+  padding: 0.45rem 1.2rem;
+  border: 1.5px solid rgba(200,120,255,0.45);
+  border-radius: 20px;
   color: var(--text);
+  background: rgba(140,60,255,0.1);
   transition: background 0.15s;
 }
-.nav-cta:hover { background: rgba(255,255,255,0.06); }
+.nav-cta:hover { background: rgba(140,60,255,0.22); }
 
 .hero-banner {
   width: 100%;
-  height: 500px;
-  background: #181818;
+  min-height: 540px;
+  background: #0a0a0a;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;
-  padding: 4rem 2.5rem;
+  padding: 5rem 2.5rem 4rem;
+  position: relative;
+  overflow: hidden;
   border-bottom: 1px solid var(--border);
 }
 
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.blob-purple {
+  width: 500px; height: 500px;
+  background: rgba(120, 40, 220, 0.55);
+  top: -100px; left: -80px;
+}
+
+.blob-pink {
+  width: 400px; height: 400px;
+  background: rgba(220, 40, 160, 0.45);
+  top: 50px; right: 100px;
+}
+
+.blob-orange {
+  width: 350px; height: 350px;
+  background: rgba(220, 120, 30, 0.35);
+  bottom: -80px; right: -50px;
+}
+
+.star { position: absolute; color: rgba(255,255,255,0.55); font-size: 26px; pointer-events: none; }
+.cross { position: absolute; color: rgba(255,255,255,0.4); font-size: 22px; font-weight: 300; pointer-events: none; }
+
 .hero-banner h1 {
-  font-size: clamp(3rem, 6.5vw, 5.5rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  color: var(--text);
+  font-size: clamp(3.8rem, 8vw, 7rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  color: #fff;
+  position: relative;
+  z-index: 1;
   margin-bottom: 1rem;
 }
 
 .hero-banner p {
   font-size: 19px;
-  color: var(--muted);
+  color: rgba(255,255,255,0.65);
   font-weight: 400;
   line-height: 1.5;
-  max-width: 480px;
-}
-
-.hero-img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  display: block;
-  border-bottom: 1px solid var(--border);
-}
-
-.hero-img-placeholder {
-  width: 100%;
-  height: 320px;
-  background: #161616;
-  border-bottom: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
 }
 
 .section {
@@ -136,27 +155,19 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.75rem 0;
+  padding: 1.5rem 0;
   border-bottom: 1px solid var(--border);
   gap: 2rem;
 }
 .platform-item:first-child { border-top: 1px solid var(--border); }
-.platform-item:hover .platform-info h3 { opacity: 0.65; }
+.platform-item:hover .plat-name { opacity: 0.65; }
 .platform-item:hover .arrow { transform: translateX(5px); }
 
-.platform-info h3 {
-  font-size: 19px;
+.plat-name {
+  font-size: 20px;
   font-weight: 700;
-  margin-bottom: 0.35rem;
+  letter-spacing: -0.02em;
   transition: opacity 0.15s;
-}
-
-.platform-info p {
-  font-size: 14px;
-  color: var(--muted);
-  max-width: 500px;
-  line-height: 1.55;
-  font-weight: 400;
 }
 
 .arrow {
@@ -179,7 +190,7 @@ nav {
   padding: 1.5rem;
   background: var(--bg2);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 16px;
   transition: border-color 0.2s;
 }
 .product-card:hover { border-color: rgba(255,255,255,0.16); }
@@ -198,26 +209,21 @@ nav {
 .badge {
   display: inline-block;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   padding: 0.2rem 0.65rem;
   border-radius: 20px;
-  background: rgba(255,255,255,0.06);
-  color: var(--muted);
+  background: rgba(160,60,255,0.15);
+  color: #d084fc;
   width: fit-content;
 }
 
-.product-card h3 {
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
+.product-card h3 { font-size: 16px; font-weight: 700; letter-spacing: -0.02em; }
 
 .product-card p {
   font-size: 13px;
   color: var(--muted);
   line-height: 1.5;
   flex: 1;
-  font-weight: 400;
 }
 
 .product-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
@@ -261,7 +267,7 @@ footer {
   gap: 1rem;
 }
 
-footer p { font-size: 13px; color: var(--muted); font-weight: 400; }
+footer p { font-size: 13px; color: var(--muted); }
 
 .footer-links { display: flex; gap: 1.5rem; }
 .footer-links a { font-size: 13px; color: var(--muted); transition: color 0.15s; }
@@ -270,7 +276,7 @@ footer p { font-size: 13px; color: var(--muted); font-weight: 400; }
 @media (max-width: 640px) {
   nav { padding: 1rem 1.25rem; }
   .nav-links { display: none; }
-  .hero-banner { padding: 3rem 1.25rem; height: 380px; }
+  .hero-banner { padding: 3rem 1.25rem 3.5rem; min-height: 400px; }
   .section { padding: 3rem 1.25rem; }
   footer { padding: 1.5rem 1.25rem; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
@@ -290,21 +296,29 @@ footer p { font-size: 13px; color: var(--muted); font-weight: 400; }
 </nav>
 
 <div class="hero-banner">
+  <div class="blob blob-purple"></div>
+  <div class="blob blob-pink"></div>
+  <div class="blob blob-orange"></div>
+  <span class="star" style="top:9%;left:6%">✦</span>
+  <span class="star" style="top:48%;left:44%">✦</span>
+  <span class="star" style="top:78%;right:16%">✦</span>
+  <span class="cross" style="top:26%;right:22%">+</span>
+  <span class="cross" style="top:31%;right:27%">+</span>
+  <span class="cross" style="top:36%;right:22%">+</span>
+  <span class="cross" style="top:41%;right:27%">+</span>
+  <span class="cross" style="top:46%;right:22%">+</span>
+  <span class="cross" style="top:36%;right:17%">+</span>
+  <span class="cross" style="top:41%;right:17%">+</span>
+  <span class="cross" style="top:46%;right:17%">+</span>
   <h1>Grus Works</h1>
   <p>Thoughtful apps for everyday life.</p>
 </div>
 
-<div class="hero-img-placeholder"></div>
-
 <div class="section" id="platforms">
   <div class="section-label">Platforms</div>
-  <p class="section-intro">Building focused, high-quality apps with a strong emphasis on simplicity, performance, and user experience.</p>
   <div class="platform-list">
     <a class="platform-item" href="https://apps.apple.com" target="_blank">
-      <div class="platform-info">
-        <h3>iOS App Store</h3>
-        <p>Crafting elegant, user-friendly applications for iPhone and iPad. From concept to launch, we prioritize design excellence, seamless functionality, and optimal performance.</p>
-      </div>
+      <span class="plat-name">iOS App Store</span>
       <span class="arrow">→</span>
     </a>
   </div>
