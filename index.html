@@ -5,25 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grus Works</title>
 <meta name="description" content="Thoughtful apps for everyday life.">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #0f0f0f;
-  --bg2: #181818;
-  --text: #f0f0f0;
+  --bg: #111111;
+  --bg2: #1a1a1a;
+  --text: #f2f2f2;
   --muted: #888;
-  --border: rgba(255,255,255,0.09);
-  --max: 980px;
-  --font-head: 'Syne', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --border: rgba(255,255,255,0.08);
+  --max: 960px;
+  --font: 'Plus Jakarta Sans', -apple-system, sans-serif;
 }
 
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-body);
+  font-family: var(--font);
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -39,32 +38,23 @@ nav {
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  background: var(--bg);
+  background: rgba(17,17,17,0.96);
+  backdrop-filter: blur(12px);
   z-index: 100;
 }
 
-.logo {
-  font-family: var(--font-head);
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
+.logo { font-size: 15px; font-weight: 700; }
 
 .nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a {
-  font-family: var(--font-body);
-  font-size: 14px;
-  color: var(--muted);
-  transition: color 0.15s;
-}
+.nav-links a { font-size: 14px; color: var(--muted); transition: color 0.15s; font-weight: 500; }
 .nav-links a:hover { color: var(--text); }
 
 .nav-cta {
-  font-family: var(--font-body);
   font-size: 14px;
+  font-weight: 600;
   padding: 0.45rem 1.1rem;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 8px;
   color: var(--text);
   transition: background 0.15s;
 }
@@ -72,75 +62,72 @@ nav {
 
 .hero-banner {
   width: 100%;
-  height: 440px;
-  background: #161622;
+  height: 500px;
+  background: #181818;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
   padding: 4rem 2.5rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-banner::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 60% 0%, rgba(100,80,220,0.15) 0%, transparent 65%);
-  pointer-events: none;
-}
-
-.hero-banner h1 {
-  font-family: var(--font-head);
-  font-size: clamp(3.5rem, 7vw, 6rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  color: var(--text);
-  position: relative;
-  z-index: 1;
-}
-
-.hero-sub {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 3rem 2.5rem 5rem;
   border-bottom: 1px solid var(--border);
 }
 
-.hero-sub p {
-  font-family: var(--font-body);
-  font-size: 20px;
+.hero-banner h1 {
+  font-size: clamp(3rem, 6.5vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.hero-banner p {
+  font-size: 19px;
   color: var(--muted);
-  max-width: 480px;
+  font-weight: 400;
   line-height: 1.5;
+  max-width: 480px;
+}
+
+.hero-img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-img-placeholder {
+  width: 100%;
+  height: 320px;
+  background: #161616;
+  border-bottom: 1px solid var(--border);
 }
 
 .section {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 5rem 2.5rem;
+  padding: 4.5rem 2.5rem;
 }
 
 .section + .section { border-top: 1px solid var(--border); }
 
 .section-label {
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
 }
 
 .section-intro {
-  font-family: var(--font-body);
   font-size: 16px;
   color: var(--muted);
-  max-width: 580px;
+  max-width: 560px;
   line-height: 1.65;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
 }
 
 .platform-list { display: flex; flex-direction: column; }
@@ -152,72 +139,37 @@ nav {
   padding: 1.75rem 0;
   border-bottom: 1px solid var(--border);
   gap: 2rem;
-  transition: opacity 0.15s;
 }
 .platform-item:first-child { border-top: 1px solid var(--border); }
-.platform-item:hover { opacity: 0.75; }
+.platform-item:hover .platform-info h3 { opacity: 0.65; }
+.platform-item:hover .arrow { transform: translateX(5px); }
 
 .platform-info h3 {
-  font-family: var(--font-head);
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 700;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.35rem;
+  transition: opacity 0.15s;
 }
 
 .platform-info p {
-  font-family: var(--font-body);
   font-size: 14px;
   color: var(--muted);
   max-width: 500px;
   line-height: 1.55;
+  font-weight: 400;
 }
 
 .arrow {
   color: var(--muted);
-  font-size: 18px;
+  font-size: 20px;
   flex-shrink: 0;
-  transition: transform 0.15s;
-}
-.platform-item:hover .arrow { transform: translateX(4px); }
-
-.mid-banner {
-  width: 100%;
-  height: 280px;
-  background: #13131f;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.mid-banner::before {
-  content: '';
-  position: absolute;
-  width: 500px; height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(60,50,160,0.12) 0%, transparent 70%);
-  left: 50%; top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.mid-banner span {
-  font-family: var(--font-head);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.15);
-  position: relative;
-  z-index: 1;
+  transition: transform 0.2s;
 }
 
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .product-card {
@@ -227,15 +179,15 @@ nav {
   padding: 1.5rem;
   background: var(--bg2);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  transition: border-color 0.15s;
+  border-radius: 14px;
+  transition: border-color 0.2s;
 }
-.product-card:hover { border-color: rgba(255,255,255,0.18); }
+.product-card:hover { border-color: rgba(255,255,255,0.16); }
 
 .app-icon {
   width: 60px; height: 60px;
   border-radius: 14px;
-  background: #1e1e32;
+  background: #222;
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
@@ -245,54 +197,54 @@ nav {
 
 .badge {
   display: inline-block;
-  font-family: var(--font-body);
   font-size: 11px;
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
+  font-weight: 600;
+  padding: 0.2rem 0.65rem;
+  border-radius: 20px;
   background: rgba(255,255,255,0.06);
   color: var(--muted);
   width: fit-content;
 }
 
 .product-card h3 {
-  font-family: var(--font-head);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .product-card p {
-  font-family: var(--font-body);
   font-size: 13px;
   color: var(--muted);
   line-height: 1.5;
   flex: 1;
+  font-weight: 400;
 }
 
 .product-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 
 .store-btn {
-  font-family: var(--font-body);
   font-size: 12px;
-  padding: 0.3rem 0.75rem;
-  border: 1px solid var(--border);
-  border-radius: 5px;
-  color: var(--muted);
-  transition: all 0.15s;
-}
-.store-btn:hover { border-color: rgba(255,255,255,0.25); color: var(--text); }
-
-.social-list { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-
-.social-btn {
-  font-family: var(--font-body);
-  font-size: 14px;
-  padding: 0.6rem 1.25rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
   border: 1px solid var(--border);
   border-radius: 6px;
   color: var(--muted);
   transition: all 0.15s;
 }
-.social-btn:hover { border-color: rgba(255,255,255,0.25); color: var(--text); }
+.store-btn:hover { border-color: rgba(255,255,255,0.22); color: var(--text); }
+
+.social-list { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+.social-btn {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--muted);
+  transition: all 0.15s;
+}
+.social-btn:hover { border-color: rgba(255,255,255,0.22); color: var(--text); }
 
 footer {
   border-top: 1px solid var(--border);
@@ -309,27 +261,17 @@ footer {
   gap: 1rem;
 }
 
-footer p {
-  font-family: var(--font-body);
-  font-size: 13px;
-  color: var(--muted);
-}
+footer p { font-size: 13px; color: var(--muted); font-weight: 400; }
 
 .footer-links { display: flex; gap: 1.5rem; }
-.footer-links a {
-  font-family: var(--font-body);
-  font-size: 13px;
-  color: var(--muted);
-  transition: color 0.15s;
-}
+.footer-links a { font-size: 13px; color: var(--muted); transition: color 0.15s; }
 .footer-links a:hover { color: var(--text); }
 
 @media (max-width: 640px) {
   nav { padding: 1rem 1.25rem; }
   .nav-links { display: none; }
-  .hero-banner { padding: 3rem 1.25rem; height: 320px; }
-  .hero-sub { padding: 2rem 1.25rem 3.5rem; }
-  .section { padding: 3.5rem 1.25rem; }
+  .hero-banner { padding: 3rem 1.25rem; height: 380px; }
+  .section { padding: 3rem 1.25rem; }
   footer { padding: 1.5rem 1.25rem; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
 }
@@ -349,16 +291,14 @@ footer p {
 
 <div class="hero-banner">
   <h1>Grus Works</h1>
-</div>
-
-<div class="hero-sub">
   <p>Thoughtful apps for everyday life.</p>
 </div>
+
+<div class="hero-img-placeholder"></div>
 
 <div class="section" id="platforms">
   <div class="section-label">Platforms</div>
   <p class="section-intro">Building focused, high-quality apps with a strong emphasis on simplicity, performance, and user experience.</p>
-
   <div class="platform-list">
     <a class="platform-item" href="https://apps.apple.com" target="_blank">
       <div class="platform-info">
@@ -370,14 +310,9 @@ footer p {
   </div>
 </div>
 
-<div class="mid-banner">
-  <span>Grus Works · Thoughtful apps for everyday life</span>
-</div>
-
 <div class="section" id="products">
   <div class="section-label">Products</div>
   <p class="section-intro">Apps built to make everyday life a little more intentional — from managing money to building better habits.</p>
-
   <div class="products-grid">
     <div class="product-card">
       <div class="app-icon">💰</div>
@@ -393,7 +328,6 @@ footer p {
 
 <div class="section" id="socials">
   <div class="section-label">Social media</div>
-  <p class="section-intro">Stay updated on new apps and releases.</p>
   <div class="social-list">
     <a href="mailto:hello@grusworks.app" class="social-btn">Email</a>
   </div>
