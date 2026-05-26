@@ -50,6 +50,10 @@ nav {
   border-bottom: 1px solid var(--border);
   background: rgba(10,10,10,0.75);
   backdrop-filter: blur(20px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
 }
 
 .logo { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.6rem; }
@@ -69,6 +73,8 @@ nav {
   letter-spacing: -0.03em;
   line-height: 1.1;
   margin-bottom: 0.75rem;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .updated {
