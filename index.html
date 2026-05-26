@@ -58,7 +58,8 @@ nav {
   z-index: 100;
 }
 
-.logo { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+.logo { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.6rem; }
+.logo img { width: 32px; height: 32px; object-fit: contain; }
 
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a { font-size: 14px; color: var(--muted); transition: color 0.15s; font-weight: 500; }
@@ -257,12 +258,12 @@ footer p { font-size: 13px; color: var(--muted); }
 <body>
 
 <nav>
-  <span class="logo">Grus Works</span>
+  <span class="logo"><img src="logo.png" alt="Grus Works">Grus Works</span>
   <ul class="nav-links">
     <li><a href="#products">Products</a></li>
     <li><a href="#socials">Socials</a></li>
   </ul>
-  <a href="mailto:hello@grusworks.app" class="nav-cta">Contact Us</a>
+  <a href="mailto:contact@grus.works" class="nav-cta">Contact Us</a>
 </nav>
 
 <div class="hero-banner">
@@ -289,7 +290,7 @@ footer p { font-size: 13px; color: var(--muted); }
 <div class="section" id="socials">
   <div class="section-label">Social media</div>
   <div class="social-list">
-    <a href="mailto:hello@grusworks.app" class="social-btn">Email</a>
+    <a href="mailto:contact@grus.works" class="social-btn">Email</a>
   </div>
 </div>
 
@@ -299,7 +300,7 @@ footer p { font-size: 13px; color: var(--muted); }
     <div class="footer-links">
       <a href="/privacy">Privacy Policy</a>
       <a href="/terms">Terms &amp; Conditions</a>
-      <a href="mailto:hello@grusworks.app">Contact Us</a>
+      <a href="mailto:contact@grus.works">Contact Us</a>
     </div>
   </div>
 </footer>
